@@ -82,6 +82,7 @@ clone_turtlebot(){
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+    git clone https://github.com/hrnr/m-explore
     chmod -R 777 ~/${dir}
     source /opt/ros/melodic/setup.bash 
     cd ~/${dir}
