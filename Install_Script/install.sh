@@ -48,21 +48,20 @@ ros_retriever() {
 } &>/dev/null
 #catkin workspace
 full_catkin() {
-
+    #use user input to name their workspace
     echo -e "${CYAN}Name your catkin workspace :: ${NC}"
     read dir
-    #echo -e "${RED}Creating catkin workspace :: ~/${dir} ${NC}"
+
     spinner setup_catkinWS "${RED}Creating catkin workspace :: ~/${dir}" "Catkin Workspace Created: :: ~/${dir}\n"    
 
 }
 setup_catkinWS() {
-    #home dir
 
+    #create their ws
     mkdir -p ~/${dir}/src
-
     source /opt/ros/melodic/setup.bash
-
-    (cd ~/${dir} && catkin_make && source ~/${dir}/devel/setup.bash && echo $ROS_PACKAGE_PATH)
+    #build
+    (cd ~/${dir} && catkin_make && source ~/${dir}/devel/setup.bash)
     #permissions
     chmod -R 777 ~/${dir}
     #env variables
@@ -78,6 +77,7 @@ install_turtlebot() {
 }
 
 clone_turtlebot(){
+    #also clones the map_merge
     cd ~/${dir}/src
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
@@ -94,12 +94,12 @@ install_dependencies(){
 }
 
 environment_variables(){
+    #setup their bashrc
     echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
     echo "source  ~/${dir}/devel/setup.bash" >> ~/.bashrc
     echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc
 }
-#install_git
-#install_Ros
+
 full_execution() {
     spinner install_git "Installing git" "Installed git"
     install_ros
