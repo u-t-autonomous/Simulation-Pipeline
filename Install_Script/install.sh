@@ -8,7 +8,7 @@ NC='\033[0m'
 
 #installing git
 install_git() {
-    apt-get install git    
+    apt-get install git -y  
 } &>/dev/null
 
 #installing ROS Melodic
@@ -35,17 +35,16 @@ spinner(){
 }
 
 ros_retriever() {
-    sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-    apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-    apt update
+    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+    sudo apt update
     #full install
-    apt install ros-melodic-desktop-full
+    sudo apt install ros-melodic-desktop-full -y
     #rosdep
     sudo rosdep init
-    rosdep update
-
-    
+    rosdep update    
 } &>/dev/null
+
 #catkin workspace
 full_catkin() {
     #use user input to name their workspace
@@ -62,8 +61,7 @@ setup_catkinWS() {
     source /opt/ros/melodic/setup.bash
     #build
     (cd ~/${dir} && catkin_make && source ~/${dir}/devel/setup.bash)
-    #permissions
-    chmod -R 777 ~/${dir}
+
     #env variables
     
 
@@ -83,21 +81,20 @@ clone_turtlebot(){
     git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
     git clone https://github.com/hrnr/m-explore
-    chmod -R 777 ~/${dir}
     source /opt/ros/melodic/setup.bash 
     cd ~/${dir}
     catkin_make    
 } &>/dev/null
 
 install_dependencies(){
-    sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch ros-melodic-depthimage-to-laserscan ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt-image-view ros-melodic-gmapping ros-melodic-navigation ros-melodic-interactive-markers
-}
+    sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch ros-melodic-depthimage-to-laserscan ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt-image-view ros-melodic-gmapping ros-melodic-navigation ros-melodic-interactive-markers -y
+} &>/dev/null
 
 environment_variables(){
     #setup their bashrc
     echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
-    echo "source  ~/${dir}/devel/setup.bash" >> ~/.bashrc
     echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc
+    echo "source  ~/${dir}/devel/setup.bash" >> ~/.bashrc
 }
 
 full_execution() {
@@ -107,3 +104,4 @@ full_execution() {
     install_turtlebot
 }
 full_execution
+
