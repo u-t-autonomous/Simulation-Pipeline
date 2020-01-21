@@ -237,6 +237,7 @@ DIST          = ../../../Qt/5.12.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf \
+		../../navgoal/.qmake.stash \
 		../../../Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf \
@@ -447,6 +448,7 @@ Makefile: ../../navgoal/navgoal.pro ../../Qt/5.12.6/gcc_64/mkspecs/features/spec
 		../../Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf \
@@ -642,6 +644,7 @@ Makefile: ../../navgoal/navgoal.pro ../../Qt/5.12.6/gcc_64/mkspecs/features/spec
 ../../Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf:
 ../../Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf:
@@ -1250,6 +1253,23 @@ build/obj/mainwindow.o: ../../navgoal/mainwindow.cpp ../../navgoal/mainwindow.h 
 		../../navgoal/addrobotwindow.h \
 		../../Qt/5.12.6/gcc_64/include/QtWidgets/QWidget \
 		build/uic/ui_mainwindow.h \
+		../../Qt/5.12.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/QApplication \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qapplication.h \
+		../../Qt/5.12.6/gcc_64/include/QtCore/qcoreapplication.h \
+		../../Qt/5.12.6/gcc_64/include/QtCore/qeventloop.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../Qt/5.12.6/gcc_64/include/QtGui/qguiapplication.h \
+		../../Qt/5.12.6/gcc_64/include/QtGui/qinputmethod.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/QMenuBar \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qmenubar.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qmenu.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qaction.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/QStatusBar \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/QToolBar \
+		../../Qt/5.12.6/gcc_64/include/QtWidgets/qtoolbar.h \
 		../../Qt/5.12.6/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../Qt/5.12.6/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.12.6/gcc_64/include/QtWidgets/qlayout.h \
