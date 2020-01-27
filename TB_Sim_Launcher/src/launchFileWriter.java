@@ -324,6 +324,7 @@ public class launchFileWriter {
 
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(new FileInputStream(CURR_DIR + "/parameters.txt"), "UTF-8"));
+                    System.err.println(CURR_DIR + "/parameters.txt");
 
             String worldDir, occGridDir, tbModel;
             int tbAmt;

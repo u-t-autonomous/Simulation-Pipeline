@@ -97,11 +97,15 @@ environment_variables(){
     echo "source  ~/${dir}/devel/setup.bash" >> ~/.bashrc
 }
 
+install_qt(){
+sudo apt-get -y install openjdk-7-jre qtcreator build-essential
+}
+
 full_execution() {
     spinner install_git "Installing git" "Installed git"
     install_ros
     full_catkin
     install_turtlebot
+    install_qt
 }
 full_execution
-
